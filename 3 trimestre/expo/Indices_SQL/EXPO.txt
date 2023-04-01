@@ -1,0 +1,24 @@
+los indices son escensiales para asegurarse de que las bases de datos funcionan de manera eficiente.
+y que encuentre los registros de la manera mas rapida posible.
+asi como los indices de los librso permiten encontrar los capitulos de manera mas facil, asi mismo los indices en las
+bases de datos sirven para encontar de manera mas facil los registros y las entradas que se necesiten.
+* aplican para cualquier sistema gestor de bases de datos.son universales los indices.
+* los indices pueden ser:
+    - clustered: agrupados (se ordenan fisicamente en el disco, ascendente o descendente)
+    - non clustered: no agrupados ()
+* no es recomendable crear un undice para una tabla que no se utilice con frecuencia
+* 
+
+índice SQL para poder recuperar datos de una base de datos de una manera más rápida. El indexar una tabla o la vista 
+es sin lugar a dudas, una de las mejores opciones de poder mejorar el rendimiento de las consultas y aplicaciones.
+
+Un índice SQL es una tabla de búsqueda rápida para poder encontrar los registros que los usuarios necesitan buscar con
+mayor frecuencia.
+
+#######################################################################################################################
+
+indices de klave primaria. (no permiten valore nulos ni repetidos.)
+indices ordinarios. (si permite valores nulos y duplicar)
+indices unicos. (si prmite valores nulos no permite duplicados)
+indices compuestos (permite valores nulos pero esta formados por varias columnas)
+

@@ -1,0 +1,224 @@
+Si deseas cambiar el formato de calendario predeterminado, puedes utilizar los siguientes parámetros:
+
+w: ancho de la columna de fecha (por defecto 2)
+l: número de líneas por semana (por defecto 1)
+c: número de espacios entre las columnas del mes (por defecto 6)
+m: número de columnas (por defecto 3
+
+la funcio calendar requiere de un año y los demas parametros son opcionales.
+
+
+* =============================================
+para imprimir l fecha
+
+import calendar
+print(calendar.calendar(2020))
+===============================================
+para ver sin print.
+
+import calendar
+calendar.prcal(2020)
+===============================================
+
+################## función llamada month, que permite mostrar un calendario para un mes específico. #######################
+
+import calendar
+print(calendar.month(2020, 11))
+================================================
+sin la funcion print.
+
+import calendar
+calendar.prcal(2020)
+=================================================
+
+La función setfirstweekday()
+cambia el comportamiento de los dias de la semana logrando que el lunes ya no sea el primer dia.
+
+import calendar
+
+calendar.setfirstweekday(calendar.SATURDAY)
+calendar.prmonth(2020, 2)
+=================================================
+
+La función weekday()
+devuelve el día de la semana como un valor entero para el año, mes y día
+
+import calendar
+print(calendar.weekday(2020, 12, 24))
+
+RESULTADO === 3 ==== JUEVES.
+==================================================
+
+La función weekheader()
+
+Si es necesario, puedes obtener nombres cortos de días de la semana utilizando el método weekheader.
+OBTENIENDO LA CANTIDAD DE LETRAS INICIALES DEL NOMBRE DEL DIA DE LA SEMANA.
+
+import calendar
+print(calendar.weekheader(2))
+
+Si cambias el primer día de la semana, por ejemplo, usando la función setfirstweekday, 
+afectará el resultado de la función weekheader
+==================================================
+
+AÑO BICIESTO.
+
+import calendar
+
+print(calendar.isleap(2020))
+print(calendar.leapdays(2010, 2021))  # Hasta 2021, pero sin incluirlo.
+
+La primera, llamada isleap, devuelve True si el año pasado es bisiesto, o False de lo contrario. 
+El segundo, llamado leapdays, devuelve el número de años bisiestos en el rango de años dado.
+
+)=============================================
+
+CLASES PARA CREAR CALENDARIOS.
+
+	* ((calendar.Calendar)): proporciona métodos para preparar datos de calendario y dar formato.
+
+	* ((calendar.TextCalendar)): se utiliza para crear calendarios de texto regulares.
+
+	* ((calendar.HTMLCalendar)): se utiliza para crear calendarios HTML.
+
+	* ((calendar.LocalTextCalendar)): es una subclase de la clase calendar.TextCalendar. 
+		El constructor de esta clase toma el parámetro locale, el cual se utiliza para devolver
+		los nombres apropiados de los meses y días de la semana.
+
+	* ((calendar.LocalHTMLCalendar)): es una subclase de la clase calendar.HTMLCalendar. 
+		El constructor de esta clase toma el parámetro "locale", que se usa para devolver 
+		los nombres apropiados de los meses y días de la semana.
+
+
+================================================================================
+
+Creación de un objeto Calendar
+
+import calendar  
+
+c = calendar.Calendar(calendar.SUNDAY)
+
+for weekday in c.iterweekdays():
+    print(weekday, end=" ")
+
+resultado ===== 6 0 1 2 3 4 5 
+
+=============================================================
+
+El método itermonthdates()
+
+requiere especificar el año y el mes.
+
+devuelven todos los días del mes y año especificados, así como todos los días antes del 
+comienzo del mes o del final del mes que son necesarios para obtener una semana completa.
+
+import calendar  
+
+c = calendar.Calendar()
+
+for date in c.itermonthdates(2019, 11):
+    print(date, end=" ")
+============================================================
+
+metodo itermonthdays()
+
+devuelve los dias del mes y pone ceros en los dias que esten fuera del mes seleccionado.
+
+import calendar  
+
+c = calendar.Calendar()
+
+for iter in c.itermonthdays(2019, 11):
+    print(iter, end=" ")
+
+OTROS METODOS SIMILARES.
+	* itermonthdays2: devuelve días en forma de tuplas que consisten en un número de día del mes y un número de día
+		de la semana.
+
+			(0, 0) (0, 1) (0, 2) (0, 3) (1, 4) (2, 5) (3, 6) (4, 0) (5, 1)		
+
+	* itermonthdays3: devuelve días en forma de tuplas que constan de un año, un mes y un día de los números del mes.
+		Este método ha estado disponible desde la versión 3.7 de Python.
+
+			(2019, 10, 28) (2019, 10, 29) (2019, 10, 30) (2019, 10, 31) (2019, 11, 1) (2019, 11, 2)
+
+ 	* itermonthdays4: devuelve días en forma de tuplas que constan de números de año, mes, día del mes y día de la 
+		semana. Este método ha estado disponible desde la versión 3.7 de Python.
+
+			(2019, 10, 28, 0) (2019, 10, 29, 1) (2019, 10, 30, 2) (2019, 10, 31, 3) (2019, 11, 1, 4)
+
+=================================================================================
+
+El método monthdays2calendar()
+
+	import calendar  
+
+	c = calendar.Calendar()
+
+	for data in c.monthdays2calendar(2020, 12):
+    		print(data)
+
+toma el año y el mes, y luego devuelve una lista de semanas en un mes específico. 
+Cada semana es una tupla que consta de números de días y números de días de la semana
+
+	[(0, 0), (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6)]
+	[(7, 0), (8, 1), (9, 2), (10, 3), (11, 4), (12, 5), (13, 6)]
+	[(14, 0), (15, 1), (16, 2), (17, 3), (18, 4), (19, 5), (20, 6)]
+	[(21, 0), (22, 1), (23, 2), (24, 3), (25, 4), (26, 5), (27, 6)]
+	[(28, 0), (29, 1), (30, 2), (31, 3), (0, 4), (0, 5), (0, 6)]
+
+***************************************************************************************************************************
+***************************************************************************************************************************
+###########################################################################################################################
+
+2. Para mostrar un calendario de cualquier año, se emplea la función calendar con el año pasado como argumento,
+por ejemplo:
+
+import calendar
+print(calendar.calendar(2020))
+=====================================
+3. Para mostrar un calendario de cualquier mes del año, se emplea la función month, pasándole el año y el mes. 
+Por ejemplo:
+
+import calendar
+print(calendar.month(2020, 9))
+=====================================
+
+4. La función setfirstweekday te permite cambiar el primer día de la semana. Toma un valor de 0 a 6, 
+donde 0 es Domingo y 6 es Sábado.
+=====================================
+
+5. El resultado de la función weekday es un día de la semana como un valor entero para un año, mes y día determinados:
+
+import calendar
+print(calendar.weekday(2020, 9, 29)) # Esto muestra 1, que significa Martes.
+=====================================
+
+6. La función weekheader devuelve los nombres de los días de la semana en forma abreviada. El método weekheader 
+requiere que se especifique el ancho en caracteres para un día de la semana
+======================================
+
+7. Una función muy útil disponible en el módulo calendar es la función llamada isleap, que, como su nombre indica, 
+te permite comprobar si el año es bisiesto o no:
+
+import calendar
+print(calendar.isleap(2020)) # Esto muestra: True
+======================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
